@@ -48,4 +48,21 @@ Abra seu navegador no endereço http://localhost:5678 para visualizar e editar o
 >
 > ° **Google Cloud OAuth2:** Caso deseje estender o projeto para salvar logs no Google Sheets, configure o Client ID e Client Secret no Google Cloud Console, lembrando de atualizar sempre a Redirect URI com o link atual do seu ngrok.
 
+## 📸 Imagens do sistema (Workflow)
+
+<img width="1920" height="927" alt="Captura de tela 2026-01-08 222706" src="https://github.com/user-attachments/assets/c93a9279-cf04-40d3-937f-2c21a015d1f0" />
+
+<img width="1920" height="917" alt="Captura de tela 2026-01-08 222112" src="https://github.com/user-attachments/assets/0ad7f95a-1fe0-46ba-b87e-f91646f9166f" />
+
+<img width="1919" height="924" alt="Captura de tela 2026-01-08 222150" src="https://github.com/user-attachments/assets/80aa9626-04d0-4935-be98-9d574fff905f" />
+
+<img width="1917" height="925" alt="Captura de tela 2026-01-08 222307" src="https://github.com/user-attachments/assets/b990ac3b-01cf-44a4-94c6-1e9344bfbc70" />
+
+<img width="795" height="453" alt="ab18674c-5f79-4354-925e-b1fe0c982667" src="https://github.com/user-attachments/assets/9faa43e3-bfd3-4530-8968-8a218d690525" />
+
+<img width="1920" height="922" alt="Captura de tela 2026-01-09 144547" src="https://github.com/user-attachments/assets/d14df289-20b8-4bdb-af27-83387d6139a7" />
+
+![nova](https://github.com/user-attachments/assets/734d5225-1514-4a5e-b0bb-37ae90e545c6)
+
+
 ***Desenvolvido por [Tayaga Rayanne](https://github.com/TayagaRayanne) durante estudos de automação e IA.***
