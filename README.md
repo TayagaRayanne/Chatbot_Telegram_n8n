@@ -15,10 +15,13 @@ Devido à natureza da execução local, foi necessária a utilização da ferram
 - **ngrok**: Para criar um túnel seguro e permitir que o Telegram envie mensagens para o ambiente local.
 
 ## 🏗️ Estrutura do Fluxo (Workflow)
-O fluxo no n8n é composto por três etapas principais:
-1. **Telegram Trigger**: Escuta novas mensagens enviadas ao bot.
-2. **AI Agent + Google Gemini Model**: Processa a intenção da mensagem e gera uma resposta inteligente.
-3. **Telegram Send Message**: Devolve a resposta gerada pela IA para o chat do usuário.
+O fluxo no n8n é composto por quatro etapas principais:
+| Nó | Função |
+| :--- | :--- |
+| 🔴 **Trigger** | Escuta novas mensagens enviadas ao bot. |
+| 🟣 **Agent** | Orquestra a lógica da conversa. |
+| 🔵 **Gemini** | O "cérebro" que gera o conteúdo. |
+| 🟢 **Send Msg**| Entrega a resposta ao usuário. |
 
 ## ⚙️ Como Executar
 Para rodar este projeto localmente, siga estes passos:
