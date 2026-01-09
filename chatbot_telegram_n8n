@@ -1,0 +1,135 @@
+{
+  "name": "Chatbot Telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7a7f493a-2811-43a8-9511-92dda787d1fa",
+      "name": "Telegram Trigger",
+      "webhookId": "bd822d4b-ab05-441e-979e-47efc61412b3",
+      "credentials": {
+        "telegramApi": {
+          "id": "GmH9f77kDluSgU3L",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "Você é o Robozão, um assistente prestativo. Sempre responda às perguntas do usuário de forma clara, bem humorada (com delicadeza) e rápida. Se não souber algo, use seus conhecimentos gerais para ajudar de alhuma forma."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c918794d-bacb-43f7-a319-0ea5eb95f941",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "e66847c0-aad0-4d74-b6dc-8641abd68818",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "N6bvjC7WXmJOitOL",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "10e94464-54f2-4393-92b5-613aa1c0a522",
+      "name": "Send a text message",
+      "webhookId": "e54dd1f6-eacb-451e-8adb-ce3274b4f7bb",
+      "credentials": {
+        "telegramApi": {
+          "id": "GmH9f77kDluSgU3L",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "5a519a23-e7a5-4573-a793-9c56204a1001",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c339dd54df6d451b85de4005599497f7c6f5758888018beb4a93bf7c965a3abc"
+  },
+  "id": "NL5xte7XleetXnXu",
+  "tags": []
+}
